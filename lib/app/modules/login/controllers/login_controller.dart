@@ -22,7 +22,19 @@ class LoginController extends GetxController {
         loginstatus= userPersonaModel.status;
         if(loginstatus=="Sucess"){
           Get.toNamed("/home");
-        }else{
+        }if(loginstatus=="401"){
+          Get.snackbar(
+            "Error!!!",
+            "Username And Password are not Valid",
+            backgroundColor: Colors.red,
+            snackPosition: SnackPosition.BOTTOM,
+            borderColor: Colors.indigo,
+            borderRadius: 0,
+            borderWidth: 2,
+            barBlur: 0,
+          );
+        }
+        else{
           Get.snackbar(
             "Error!!!",
             "Something Went Wrong!!!",
